@@ -1,0 +1,38 @@
+# 森嘎神源官网 - Cloudflare Pages 部署指南
+
+## 部署步骤（仅需操作一次）
+
+### 第一步：创建 GitHub 仓库
+1. 打开 https://github.com/new
+2. 仓库名填：`sgsywater-website`
+3. 设为 **Private**（私有仓库）
+4. 不要勾选 "Add a README file"
+5. 点击 "Create repository"
+
+### 第二步：上传代码
+1. 在创建好的仓库页面，点击 "uploading an existing file"
+2. 把 `sgsywater-deploy` 文件夹中的所有文件拖进去（包括 .gitignore）
+3. 填写 Commit message：`init: 森嘎神源官网`
+4. 点击 "Commit changes"
+
+### 第三步：连接 Cloudflare Pages
+1. 打开 https://dash.cloudflare.com → 左侧菜单 "Pages"
+2. 点击 "Create a project" → "Connect to Git"
+3. 连接你的 GitHub 账号
+4. 选择 `sgsywater-website` 仓库
+5. 构建设置：
+   - **Build command**: 留空（不用填）
+   - **Build output directory**: `.`（点号，表示根目录）
+6. 点击 "Save and Deploy"
+
+### 第四步：完成！
+Cloudflare 会自动生成一个链接，格式为：
+`https://sgsywater-website.pages.dev`
+
+## 后续更新
+每次修改网页后，只需把新文件推送到 GitHub 仓库，Cloudflare 会自动重新部署。
+
+## 绑定自定义域名（可选）
+1. Cloudflare Pages 项目设置 → Custom domains
+2. 添加你的域名（如 sgsywater.com）
+3. 按提示在域名 DNS 中添加 CNAME 记录指向 `sgsywater-website.pages.dev`
