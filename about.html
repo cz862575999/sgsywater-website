@@ -1,0 +1,1082 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 — 森嘎神源</title>
+    <style id="theme-vars">
+/* ============================================
+   森嘎神源 — Brand Design System
+   Premium Tibetan Natural Spring Water
+   Palette: Himalayan Ochre + Glacier Teal + Snow White
+   Inspired by Tibetan earth, prayer flags, and altitude
+   ============================================ */
+
+:root {
+  /* ── Brand Primary: Himalayan Ochre (藏地赭石) ── */
+  --color-primary: #A65D2A;
+  --color-primary-light: #C47835;
+  --color-primary-dark: #7A4320;
+  --color-primary-50: #FDF6F0;
+  --color-primary-100: #F8E8D8;
+  --color-primary-200: #F0D0B0;
+  --color-primary-700: #5E3418;
+  --color-primary-900: #3D200E;
+
+  /* ── Accent: Glacier Teal (冰川蓝) ── */
+  --color-accent: #1A8A8A;
+  --color-accent-light: #22B2B2;
+  --color-accent-dark: #0F6666;
+  --color-accent-50: #E8F7F7;
+  --color-accent-100: #C0EBEB;
+
+  /* ── Neutrals: High-Altitude Slate (高原灰) ── */
+  --color-bg: #FAFAF7;
+  --color-bg-secondary: #F3F2EE;
+  --color-bg-tertiary: #E8E6E0;
+  --color-bg-deep: #1B2631;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #FFFFFF;
+  --color-border: #D6D3CC;
+  --color-border-light: #E9E7E1;
+  --color-text-primary: #1A1A17;
+  --color-text-secondary: #5C5A52;
+  --color-text-tertiary: #918E84;
+  --color-text-inverse: #FAFAF7;
+  --color-text-on-primary: #FFFFFF;
+  --color-text-on-deep: #F3F2EE;
+
+  /* ── Semantic State Colors ── */
+  --state-success: #2D8B57;
+  --state-warning: #C9860A;
+  --state-error: #B83A3A;
+  --state-info: #2E7DD1;
+
+  /* ── Radius Scale ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ── Typography System ── */
+  /* Display / Title Stack — warm serif for Tibetan soul */
+  --font-display: 'Cormorant Garamond', 'Noto Serif SC', 'Georgia', serif;
+  /* Body Stack */
+  --font-body: 'Inter', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  /* Mono Stack */
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Type Scale */
+  --text-xs: 0.75rem;
+  --text-xs-leading: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm-leading: 1.375rem;
+  --text-base: 1rem;
+  --text-base-leading: 1.625rem;
+  --text-lg: 1.125rem;
+  --text-lg-leading: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl-leading: 1.875rem;
+  --text-2xl: 1.5rem;
+  --text-2xl-leading: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl-leading: 2.375rem;
+  --text-4xl: 2.25rem;
+  --text-4xl-leading: 2.75rem;
+  --text-5xl: 3rem;
+  --text-5xl-leading: 3.5rem;
+  --text-6xl: 3.75rem;
+  --text-6xl-leading: 4.25rem;
+  --text-display: 4.5rem;
+  --text-display-leading: 5rem;
+
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.1em;
+
+  /* ── Shadow / Depth ── */
+  --shadow-xs: 0 1px 2px rgba(26, 26, 23, 0.03);
+  --shadow-sm: 0 1px 3px rgba(26, 26, 23, 0.04);
+  --shadow-md: 0 4px 12px rgba(26, 26, 23, 0.05);
+  --shadow-lg: 0 8px 24px rgba(26, 26, 23, 0.05);
+  --shadow-float: 0 16px 48px rgba(26, 26, 23, 0.12);
+  --shadow-float-lg: 0 24px 64px rgba(26, 26, 23, 0.16);
+
+  /* ── Spacing ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+
+  /* ── Transition ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Typography Classes ── */
+.sgsy-display {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--text-display-leading);
+}
+
+.sgsy-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  font-size: var(--text-5xl);
+  line-height: var(--text-5xl-leading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.sgsy-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-4xl);
+  line-height: var(--text-4xl-leading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.sgsy-h3 {
+  font-family: var(--font-display);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl-leading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+.sgsy-h4 {
+  font-family: var(--font-body);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-xl);
+  line-height: var(--text-xl-leading);
+  color: var(--color-text-primary);
+}
+
+.sgsy-body {
+  font-family: var(--font-body);
+  font-weight: var(--font-normal);
+  font-size: var(--text-base);
+  line-height: var(--text-base-leading);
+  color: var(--color-text-secondary);
+}
+
+.sgsy-body-lg {
+  font-family: var(--font-body);
+  font-weight: var(--font-normal);
+  font-size: var(--text-lg);
+  line-height: var(--text-lg-leading);
+  color: var(--color-text-secondary);
+}
+
+.sgsy-caption {
+  font-family: var(--font-body);
+  font-weight: var(--font-normal);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-leading);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+}
+
+.sgsy-overline {
+  font-family: var(--font-body);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs-leading);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.sgsy-data-number {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  font-size: var(--text-5xl);
+  line-height: 1;
+  color: var(--color-primary);
+}
+
+.sgsy-data-label {
+  font-family: var(--font-body);
+  font-weight: var(--font-medium);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm-leading);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-text-tertiary);
+}
+
+/* ── Button System ── */
+.sgsy-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  font-family: var(--font-body);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.sgsy-btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.sgsy-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  background: transparent;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.sgsy-btn-secondary:hover {
+  background: var(--color-primary-50);
+}
+
+/* ── Section Divider ── */
+.sgsy-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border-light);
+}
+
+.sgsy-divider-accent {
+  width: 48px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-primary: var(--color-primary);
+    --color-accent: var(--color-accent);
+    --color-border: var(--color-border);
+  }
+  @layer base {
+    body { background: var(--color-surface); color: var(--color-text-primary); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <main>
+
+<!-- ========================== HEADER ========================== -->
+<header
+  id="site-header"
+  data-dom-id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: transparent;"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center flex-shrink-0 group" data-dom-id="logo">
+        <img src="assets/logo.png" alt="森嘎神源" class="h-10 w-auto object-contain" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-10" data-dom-id="nav-desktop">
+        <a
+          href="index.html"
+          data-dom-id="nav-home"
+          data-nav-key="home"
+          data-active="false"
+          class="nav-item text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-80"
+          style="font-family: var(--font-body); color: var(--color-text-inverse); letter-spacing: var(--tracking-wide);"
+        >首页</a>
+        <a
+          href="products.html"
+          data-dom-id="nav-products"
+          data-nav-key="products"
+          data-active="false"
+          class="nav-item text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-80"
+          style="font-family: var(--font-body); color: var(--color-text-inverse); letter-spacing: var(--tracking-wide);"
+        >产品展示</a>
+        <a
+          href="source.html"
+          data-dom-id="nav-source"
+          data-nav-key="source"
+          data-active="false"
+          class="nav-item text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-80"
+          style="font-family: var(--font-body); color: var(--color-text-inverse); letter-spacing: var(--tracking-wide);"
+        >水源探秘</a>
+        <a
+          href="news.html"
+          data-dom-id="nav-news"
+          data-nav-key="news"
+          data-active="false"
+          class="nav-item text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-80"
+          style="font-family: var(--font-body); color: var(--color-text-inverse); letter-spacing: var(--tracking-wide);"
+        >新闻公告</a>
+        <a
+          href="about.html"
+          data-dom-id="nav-about"
+          data-nav-key="about"
+          data-active="true"
+          class="nav-item text-sm font-medium tracking-wide transition-colors duration-300 hover:opacity-80"
+          style="font-family: var(--font-body); color: var(--color-text-inverse); letter-spacing: var(--tracking-wide);"
+        >关于我们</a>
+      </nav>
+
+      <!-- Right Side: CTA + Mobile Toggle -->
+      <div class="flex items-center space-x-4">
+        <a
+          href="https://m.tb.cn/h.Rx2siT3eeuyjh1f" target="_blank"
+          data-dom-id="cta-buy"
+          class="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+          style="
+            font-family: var(--font-body);
+            background: var(--color-primary);
+            color: var(--color-text-on-primary);
+            letter-spacing: var(--tracking-wide);
+            border-radius: var(--radius-full);
+          "
+          onmouseover="this.style.background='var(--color-primary-dark)'"
+          onmouseout="this.style.background='var(--color-primary)'"
+        >立即购买</a>
+
+        <button
+          data-dom-id="mobile-menu-toggle"
+          class="md:hidden flex flex-col items-center justify-center w-10 h-10 rounded-lg transition-colors duration-200"
+          style="color: var(--color-text-inverse);"
+          aria-label="打开菜单"
+          onclick="document.getElementById('mobile-menu').classList.toggle('hidden');"
+        >
+          <span class="block w-5 h-0.5 bg-current mb-1.5 transition-transform duration-200"></span>
+          <span class="block w-5 h-0.5 bg-current mb-1.5 transition-transform duration-200"></span>
+          <span class="block w-5 h-0.5 bg-current transition-transform duration-200"></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div
+    id="mobile-menu"
+    data-dom-id="mobile-menu"
+    class="hidden md:hidden transition-all duration-300"
+    style="background: var(--color-surface); border-top: 1px solid var(--color-border-light);"
+  >
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex flex-col space-y-5">
+      <a
+        href="index.html"
+        data-dom-id="nav-home-mobile"
+        data-nav-key="home"
+        data-active="false"
+        class="nav-item-mobile text-base font-medium transition-colors duration-200"
+        style="font-family: var(--font-body); color: var(--color-text-primary);"
+      >首页</a>
+      <a
+        href="products.html"
+        data-dom-id="nav-products-mobile"
+        data-nav-key="products"
+        data-active="false"
+        class="nav-item-mobile text-base font-medium transition-colors duration-200"
+        style="font-family: var(--font-body); color: var(--color-text-primary);"
+      >产品展示</a>
+      <a
+        href="source.html"
+        data-dom-id="nav-source-mobile"
+        data-nav-key="source"
+        data-active="false"
+        class="nav-item-mobile text-base font-medium transition-colors duration-200"
+        style="font-family: var(--font-body); color: var(--color-text-primary);"
+      >水源探秘</a>
+      <a
+        href="news.html"
+        data-dom-id="nav-news-mobile"
+        data-nav-key="news"
+        data-active="false"
+        class="nav-item-mobile text-base font-medium transition-colors duration-200"
+        style="font-family: var(--font-body); color: var(--color-text-primary);"
+      >新闻公告</a>
+      <a
+        href="about.html"
+        data-dom-id="nav-about-mobile"
+        data-nav-key="about"
+        data-active="true"
+        class="nav-item-mobile text-base font-medium transition-colors duration-200"
+        style="font-family: var(--font-body); color: var(--color-primary);"
+      >关于我们</a>
+      <div class="pt-4" style="border-top: 1px solid var(--color-border-light);">
+        <a
+          href="https://m.tb.cn/h.Rx2siT3eeuyjh1f" target="_blank"
+          data-dom-id="cta-buy-mobile"
+          class="inline-flex items-center justify-center w-full px-6 py-3 rounded-full text-sm font-semibold tracking-wide text-center"
+          style="
+            font-family: var(--font-body);
+            background: var(--color-primary);
+            color: var(--color-text-on-primary);
+            letter-spacing: var(--tracking-wide);
+            border-radius: var(--radius-full);
+          "
+        >立即购买</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ========================== SECTION 1: PAGE HERO ========================== -->
+<section class="relative flex items-center justify-center text-center overflow-hidden" style="min-height: 50vh; background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-bg) 40%, var(--color-bg-secondary) 100%);">
+  <!-- Decorative subtle circles -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-20" style="background: radial-gradient(circle, var(--color-primary-100) 0%, transparent 70%);"></div>
+    <div class="absolute -bottom-32 -left-32 w-80 h-80 rounded-full opacity-15" style="background: radial-gradient(circle, var(--color-primary-200) 0%, transparent 70%);"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto px-6 py-32">
+    <p class="sgsy-overline mb-6">关于我们</p>
+    <h1 class="sgsy-h1 text-white mb-6" style="color: var(--color-primary-900); font-size: clamp(2rem, 5vw, var(--text-5xl));">坚持品质 造福一方</h1>
+    <p class="sgsy-body-lg max-w-2xl mx-auto" style="color: var(--color-text-secondary);">
+      西藏神源农牧开发有限公司成立于2012年，年产能11万吨。公司扎根雪域高原，以品质为先、造福一方为使命，致力于将珠峰脚下念康山的纯净山泉水带给每一位消费者。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========================== SECTION 2: COMPANY INTRODUCTION ========================== -->
+<section id="intro" class="w-full" style="background: var(--color-surface);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+
+      <!-- Left: Text (3/5) -->
+      <div class="lg:col-span-3">
+        <p class="sgsy-overline mb-4">COMPANY PROFILE</p>
+        <h2 class="sgsy-h2 mb-8">公司介绍</h2>
+        <div class="sgsy-divider-accent mb-10"></div>
+        <p class="sgsy-body-lg leading-loose" style="color: var(--color-text-secondary); line-height: 2;">
+          2014年，公司依托定日县政府招商引资政策支持，历时3年完成水源勘察与选址工作，最终确定海拔5400米的珠穆朗玛峰裙山念康山第一湖为水源地。2017年，公司投资1000多万元，在定日县长所乡建设"森嘎神源"天然山泉水生产基地。该基地按先进无菌标准建设现代化生产车间，配备全自动化包装饮用水灌装设备，一期项目于2021年建成投产，实现生产包装全密闭、全监控、全自动化运行。公司经营范围涵盖天然山泉水生产与销售、农作物种子生产、农牧副产品精深加工、畜禽水产养殖和销售等领域。
+        </p>
+      </div>
+
+      <!-- Right: Key Facts Card (2/5) -->
+      <div class="lg:col-span-2">
+        <div class="rounded-2xl p-8 lg:p-10" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border-light);">
+          <h3 class="sgsy-h4 mb-8">核心数据</h3>
+
+          <!-- Fact 1 -->
+          <div class="flex items-start space-x-4 mb-8 pb-8" style="border-bottom: 1px solid var(--color-border-light);">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: var(--color-primary-50);">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="sgsy-caption mb-1">成立时间</p>
+              <p class="text-xl font-semibold" style="font-family: var(--font-display); color: var(--color-text-primary);">2012年</p>
+            </div>
+          </div>
+
+          <!-- Fact 2 -->
+          <div class="flex items-start space-x-4 mb-8 pb-8" style="border-bottom: 1px solid var(--color-border-light);">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: var(--color-primary-50);">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="sgsy-caption mb-1">年产能</p>
+              <p class="text-xl font-semibold" style="font-family: var(--font-display); color: var(--color-text-primary);">11万吨</p>
+            </div>
+          </div>
+
+          <!-- Fact 3 -->
+          <div class="flex items-start space-x-4 mb-8 pb-8" style="border-bottom: 1px solid var(--color-border-light);">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: var(--color-primary-50);">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="sgsy-caption mb-1">基地面积</p>
+              <p class="text-xl font-semibold" style="font-family: var(--font-display); color: var(--color-text-primary);">9.3亩</p>
+            </div>
+          </div>
+
+          <!-- Fact 4 -->
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style="background: var(--color-primary-50);">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="sgsy-caption mb-1">总投资</p>
+              <p class="text-xl font-semibold" style="font-family: var(--font-display); color: var(--color-text-primary);">6800余万元</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================== SECTION 3: BRAND STORY ========================== -->
+<section id="story" class="w-full" style="background: var(--color-bg-secondary);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: Brand Story Text -->
+      <div>
+        <p class="sgsy-overline mb-4">BRAND STORY</p>
+        <h2 class="sgsy-h2 mb-4">品牌故事</h2>
+        <div class="sgsy-divider-accent mb-8"></div>
+        <p class="sgsy-body-lg leading-loose mb-6" style="color: var(--color-text-secondary); line-height: 2;">
+          在西藏日喀则市定日县长所乡，念康山巍然矗立，山腰之上有一汪清澈见底的圣湖——念康山第一湖。念康山绵延自世界屋脊，是珠穆朗玛峰裙山的一部分，海拔5400米，远离尘世的喧嚣与污染。世界最高峰珠穆朗玛峰就座落在定日县，全境平均海拔4300米。
+        </p>
+        <p class="sgsy-body-lg leading-loose mb-6" style="color: var(--color-text-secondary); line-height: 2;">
+          当地藏族人民世代相传：念康山第一湖的泉水，是经过高僧点化过的水，沾之好运，饮之寿长。森嘎曲德寺的僧人们每日清晨取水礼佛，守护着这片纯净的水源，见证了人与自然数百年的和谐共处。
+        </p>
+        <p class="sgsy-body-lg leading-loose" style="color: var(--color-text-secondary); line-height: 2;">
+          "森嘎"在藏语中寓意祥瑞与纯净。我们以"森嘎神源"为名，以念康山第一湖的天然泉水为魂，自2014年启动勘水选址，到2017年投资建厂，再到2021年产品正式上市，一路走来，我们始终相信，真正的好水来自大自然的馈赠。而我们做的，是守护这份纯净，将来自地球第三极的圣洁之水，传递给每一位追求健康与品质生活的人。
+        </p>
+      </div>
+
+      <!-- Right: Timeline -->
+      <div>
+        <div class="space-y-0">
+
+          <!-- Milestone 1 -->
+          <div class="flex gap-6">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary); color: var(--color-text-on-primary);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              </div>
+              <div class="w-0.5 h-16 mt-2" style="background: var(--color-border);"></div>
+            </div>
+            <div class="pb-10">
+              <p class="sgsy-caption mb-1">2012年</p>
+              <p class="sgsy-h4 mb-2">公司成立</p>
+              <p class="sgsy-body" style="color: var(--color-text-tertiary);">西藏神源农牧开发有限公司正式成立，注册地址西藏日喀则市定日县长所乡</p>
+            </div>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="flex gap-6">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary-light); color: var(--color-text-on-primary);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div class="w-0.5 h-16 mt-2" style="background: var(--color-border);"></div>
+            </div>
+            <div class="pb-10">
+              <p class="sgsy-caption mb-1">2014年</p>
+              <p class="sgsy-h4 mb-2">勘水启程</p>
+              <p class="sgsy-body" style="color: var(--color-text-tertiary);">依托定日县政府招商引资政策，正式启动水源地勘探与选址工作</p>
+            </div>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="flex gap-6">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary); color: var(--color-text-on-primary);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              </div>
+              <div class="w-0.5 h-16 mt-2" style="background: var(--color-border);"></div>
+            </div>
+            <div class="pb-10">
+              <p class="sgsy-caption mb-1">2017年</p>
+              <p class="sgsy-h4 mb-2">投资建厂</p>
+              <p class="sgsy-body" style="color: var(--color-text-tertiary);">投资1000多万元建设"森嘎神源"天然山泉水生产基地，按先进无菌标准建设现代化生产车间</p>
+            </div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="flex gap-6">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary-light); color: var(--color-text-on-primary);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <div class="w-0.5 h-16 mt-2" style="background: var(--color-border);"></div>
+            </div>
+            <div class="pb-10">
+              <p class="sgsy-caption mb-1">2021年5月</p>
+              <p class="sgsy-h4 mb-2">产品上市</p>
+              <p class="sgsy-body" style="color: var(--color-text-tertiary);">一期项目建成投产，"森嘎神源"天然山泉水正式上市，瓶装产能4500瓶/小时</p>
+            </div>
+          </div>
+
+          <!-- Milestone 5 -->
+          <div class="flex gap-6">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary); color: var(--color-text-on-primary);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div class="w-0.5 h-16 mt-2" style="background: var(--color-border);"></div>
+            </div>
+            <div class="pb-10">
+              <p class="sgsy-caption mb-1">2022年</p>
+              <p class="sgsy-h4 mb-2">绿色食品认证</p>
+              <p class="sgsy-body" style="color: var(--color-text-tertiary);">产品通过中国绿色食品发展中心"绿色食品"认证，二期改建提升工程完工</p>
+            </div>
+          </div>
+
+          <!-- Milestone 6 -->
+          <div class="flex gap-6">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--color-primary-light); color: var(--color-text-on-primary);">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+            </div>
+            <div class="pb-2">
+              <p class="sgsy-caption mb-1">2025年</p>
+              <p class="sgsy-h4 mb-2">灾后重建与产能升级</p>
+              <p class="sgsy-body" style="color: var(--color-text-tertiary);">地震后全面重建并完成产能升级，新建瓶装产线3万瓶/小时，5.5L产线1000桶/小时，签订年均1.5亿元订单</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================== SECTION 4: VISION ========================== -->
+<section id="vision" class="w-full" style="background: var(--color-surface);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 text-center">
+    <p class="sgsy-overline mb-4" style="text-align: center;">OUR VISION</p>
+    <h2 class="sgsy-h2 mb-4" style="text-align: center;">我们的愿景</h2>
+    <div class="sgsy-divider-accent mx-auto mb-16"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+
+      <!-- Pillar 1: 立足西藏 -->
+      <div class="flex flex-col items-center text-center px-4">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm);">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <h3 class="sgsy-h3 mb-4">立足西藏</h3>
+        <p class="sgsy-body" style="max-width: 320px;">
+          扎根西藏日喀则，依托念康山天然水源，坚持水源地灌装，守护每一滴水的纯净本源。
+        </p>
+      </div>
+
+      <!-- Pillar 2: 走出西藏 -->
+      <div class="flex flex-col items-center text-center px-4">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm);">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+          </svg>
+        </div>
+        <h3 class="sgsy-h3 mb-4">走出西藏</h3>
+        <p class="sgsy-body" style="max-width: 320px;">
+          以现代化全自动化生产线为基石，将高原品质的山泉水输送至全国各地市场。
+        </p>
+      </div>
+
+      <!-- Pillar 3: 享誉全国 -->
+      <div class="flex flex-col items-center text-center px-4">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm);">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+          </svg>
+        </div>
+        <h3 class="sgsy-h3 mb-4">享誉全国</h3>
+        <p class="sgsy-body" style="max-width: 320px;">
+          以品质赢信赖，以匠心铸品牌，让森嘎神源成为代表西藏的高端天然山泉水品牌。
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================== SECTION 4.5: CERTIFICATIONS ========================== -->
+<section id="certifications" class="w-full" style="background: var(--color-bg-secondary);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+    <div class="text-center mb-16">
+      <p class="sgsy-overline mb-4" style="text-align: center;">CERTIFICATIONS</p>
+      <h2 class="sgsy-h2 mb-4" style="text-align: center;">企业资质</h2>
+      <div class="sgsy-divider-accent mx-auto mb-6"></div>
+      <p class="sgsy-body max-w-2xl mx-auto" style="color: var(--color-text-tertiary);">公司荣获多项国家级信用资质认证，品质与诚信是我们不变的承诺。</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-aaa-credit.jpg" alt="AAA级信用企业" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">AAA级信用企业</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-supplier.jpg" alt="诚信供应商等级证书" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">诚信供应商等级证书</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-manager.jpg" alt="诚信经理人证书" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">诚信经理人证书</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-integrity-biz.jpg" alt="诚信经营示范企业" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">诚信经营示范企业</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-entrepreneur.jpg" alt="诚信企业家证书" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">诚信企业家证书</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-credit-grade.jpg" alt="企业信用等级证书" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">企业信用等级证书</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-capital-credit.jpg" alt="企业资信等级证书" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">企业资信等级证书</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-quality-service.jpg" alt="质量服务诚信企业" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">质量服务诚信企业</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-service-trust.jpg" alt="重服务守信用企业" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">重服务守信用企业</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-contract-trust.jpg" alt="重合同守信用企业" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">重合同守信用企业</p></div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden group" style="background: var(--color-surface); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm); transition: transform var(--transition-base), box-shadow var(--transition-base);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.transform='none'; this.style.boxShadow='var(--shadow-sm)'">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/certs/cert-quality-trust.jpg" alt="重质量守信用企业" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"></div>
+        <div class="p-4 text-center"><p class="text-sm font-medium" style="font-family: var(--font-body); color: var(--color-text-primary);">重质量守信用企业</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================== SECTION 5: SOCIAL RESPONSIBILITY ========================== -->
+<section class="w-full" style="background: var(--color-surface);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+
+    <div class="text-center mb-16">
+      <p class="sgsy-overline mb-4">SOCIAL RESPONSIBILITY</p>
+      <h2 class="sgsy-h2 mb-4">社会责任</h2>
+      <div class="sgsy-divider-accent mx-auto mb-12"></div>
+    </div>
+
+    <!-- Featured Quote -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <svg class="w-10 h-10 mx-auto mb-6 opacity-30" fill="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609L9.978 5.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H0z"/>
+      </svg>
+      <p class="text-2xl lg:text-3xl font-semibold leading-relaxed mb-6" style="font-family: var(--font-display); color: var(--color-primary-900);">
+        我们每卖出1瓶森嘎神源山泉水，都将为当地乡村振兴事业捐献一分钱。
+      </p>
+      <p class="sgsy-caption">森嘎神源公益事业承诺</p>
+    </div>
+
+    <!-- Charity Highlight Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Card 1: 教育捐赠 -->
+      <div class="rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm);">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6" style="background: var(--color-primary-50);">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </div>
+        <h3 class="sgsy-h4 mb-3 text-center">教育捐赠</h3>
+        <p class="sgsy-body text-center">向定日县教育系统捐赠矿泉水，支持当地教育事业，让纯净之水源源不断地润泽下一代。</p>
+      </div>
+
+      <!-- Card 2: 扶贫帮困 -->
+      <div class="rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm);">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6" style="background: var(--color-primary-50);">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </div>
+        <h3 class="sgsy-h4 mb-3 text-center">扶贫帮困</h3>
+        <p class="sgsy-body text-center">与特困户家庭结成定点帮扶，以实际行动回馈社会，助力乡亲们改善生活、走向富裕。</p>
+      </div>
+
+      <!-- Card 3: 基础设施建设 -->
+      <div class="rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-1" style="background: var(--color-bg-secondary); border: 1px solid var(--color-border-light); box-shadow: var(--shadow-sm);">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-6" style="background: var(--color-primary-50);">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <h3 class="sgsy-h4 mb-3 text-center">基础设施</h3>
+        <p class="sgsy-body text-center">为宗布寺接建饮用水管道，改善当地基础设施，将安全洁净的饮用水送达每个角落。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================== SECTION 6: CONTACT ========================== -->
+<section id="contact" class="w-full" style="background: var(--color-primary-900);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 text-center">
+    <p class="sgsy-overline mb-4" style="color: var(--color-primary-200);">GET IN TOUCH</p>
+    <h2 class="sgsy-h2 mb-16" style="color: var(--color-text-inverse);">联系我们</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+
+      <!-- Phone -->
+      <div class="flex flex-col items-center">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-5" style="background: rgba(14, 165, 180, 0.15); border: 1px solid rgba(14, 165, 180, 0.3);">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary-200);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+        </div>
+        <p class="text-sm font-medium mb-2" style="font-family: var(--font-body); color: var(--color-primary-200); letter-spacing: var(--tracking-wide);">电话</p>
+        <p class="text-lg font-semibold" style="font-family: var(--font-body); color: var(--color-text-inverse);">0892-8929356</p>
+      </div>
+
+      <!-- Email -->
+      <div class="flex flex-col items-center">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-5" style="background: rgba(14, 165, 180, 0.15); border: 1px solid rgba(14, 165, 180, 0.3);">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary-200);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <p class="text-sm font-medium mb-2" style="font-family: var(--font-body); color: var(--color-primary-200); letter-spacing: var(--tracking-wide);">邮箱</p>
+        <p class="text-lg font-semibold" style="font-family: var(--font-body); color: var(--color-text-inverse);">1465464373@qq.com</p>
+      </div>
+
+      <!-- Address -->
+      <div class="flex flex-col items-center">
+        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-5" style="background: rgba(14, 165, 180, 0.15); border: 1px solid rgba(14, 165, 180, 0.3);">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-primary-200);">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <p class="text-sm font-medium mb-2" style="font-family: var(--font-body); color: var(--color-primary-200); letter-spacing: var(--tracking-wide);">地址</p>
+        <p class="text-lg font-semibold" style="font-family: var(--font-body); color: var(--color-text-inverse);">西藏日喀则市定日县长所乡</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================== FOOTER ========================== -->
+<footer
+  data-dom-id="site-footer"
+  class="w-full"
+  style="background: var(--color-surface); border-top: 1px solid var(--color-border-light);"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8" style="padding-top: var(--space-16); padding-bottom: var(--space-16);">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+
+      <!-- Column 1: Brand Logo & Description -->
+      <div class="sm:col-span-2 lg:col-span-1">
+        <a href="index.html" class="inline-block mb-4">
+          <img src="assets/logo.png" alt="森嘎神源" class="h-12 w-auto object-contain" />
+        </a>
+        <p class="text-sm leading-relaxed max-w-xs" style="font-family: var(--font-body); color: var(--color-text-secondary); line-height: var(--text-base-leading);">
+          源自西藏雪域高原的天然山泉水，冰川融水历经千年岩层过滤，纯净甘冽，为您带来大自然的馈赠。
+        </p>
+      </div>
+
+      <!-- Column 2: Product Series -->
+      <div>
+        <h4 class="text-sm font-semibold tracking-wide mb-5" style="font-family: var(--font-body); color: var(--color-text-primary); letter-spacing: var(--tracking-wide);">产品系列</h4>
+        <ul class="space-y-3">
+          <li><a href="products.html#328ml" class="text-sm transition-colors duration-200 hover:opacity-80" style="font-family: var(--font-body); color: var(--color-text-secondary);">328ml 便携装</a></li>
+          <li><a href="products.html#360ml" class="text-sm transition-colors duration-200 hover:opacity-80" style="font-family: var(--font-body); color: var(--color-text-secondary);">360ml 经典装</a></li>
+          <li><a href="products.html#398ml" class="text-sm transition-colors duration-200 hover:opacity-80" style="font-family: var(--font-body); color: var(--color-text-secondary);">398ml 商务装</a></li>
+          <li><a href="products.html#5-5l" class="text-sm transition-colors duration-200 hover:opacity-80" style="font-family: var(--font-body); color: var(--color-text-secondary);">5.5L 家庭装</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: About Us Links -->
+      <div>
+        <h4 class="text-sm font-semibold tracking-wide mb-5" style="font-family: var(--font-body); color: var(--color-text-primary); letter-spacing: var(--tracking-wide);">关于我们</h4>
+        <ul class="space-y-3">
+          <li><a href="about.html#intro" class="text-sm transition-colors duration-200 hover:opacity-80" style="font-family: var(--font-body); color: var(--color-text-secondary);">公司介绍</a></li>
+          <li><a href="about.html#story" class="text-sm transition-colors duration-200 hover:opacity-80" style="font-family: var(--font-body); color: var(--color-text-secondary);">品牌故事</a></li>
+          <li><a href="about.html#contact" class="text-sm transition-colors duration-200 hover:opacity-80" style="font-family: var(--font-body); color: var(--color-text-secondary);">联系方式</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact Information -->
+      <div>
+        <h4 class="text-sm font-semibold tracking-wide mb-5" style="font-family: var(--font-body); color: var(--color-text-primary); letter-spacing: var(--tracking-wide);">联系方式</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start space-x-2">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text-tertiary);">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <span class="text-sm" style="font-family: var(--font-body); color: var(--color-text-secondary);">0892-8929356</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text-tertiary);">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span class="text-sm" style="font-family: var(--font-body); color: var(--color-text-secondary);">1465464373@qq.com</span>
+          </li>
+          <li class="flex items-start space-x-2">
+            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: var(--color-text-tertiary);">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span class="text-sm" style="font-family: var(--font-body); color: var(--color-text-secondary);">西藏日喀则市定日县长所乡</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="w-full" style="border-top: 1px solid var(--color-border-light); background: var(--color-bg);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-center sm:justify-between space-y-2 sm:space-y-0">
+      <p class="text-xs" style="font-family: var(--font-body); color: var(--color-text-tertiary); letter-spacing: var(--tracking-wide);">
+        &copy; 2024 森嘎神源 &nbsp;藏ICP备2021000304号-1
+      </p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========================== INLINE JS: Header Scroll Behavior ========================== -->
+<script>
+(function () {
+  var header = document.getElementById('site-header');
+  if (!header) return;
+
+  var navItems = header.querySelectorAll('.nav-item');
+  var hamburger = header.querySelector('[data-dom-id="mobile-menu-toggle"]');
+
+  var scrolledClass = 'header-scrolled';
+
+  function applyScrolledState() {
+    var isScrolled = window.scrollY > 40;
+
+    if (isScrolled) {
+      header.style.background = 'var(--color-surface)';
+      header.style.boxShadow = 'var(--shadow-md)';
+      navItems.forEach(function (item) {
+        if (item.getAttribute('data-active') !== 'true') {
+          item.style.color = 'var(--color-text-secondary)';
+        }
+      });
+      if (hamburger) hamburger.style.color = 'var(--color-text-primary)';
+    } else {
+      header.style.background = 'transparent';
+      header.style.boxShadow = 'none';
+      navItems.forEach(function (item) {
+        if (item.getAttribute('data-active') !== 'true') {
+          item.style.color = 'var(--color-text-inverse)';
+        }
+      });
+      if (hamburger) hamburger.style.color = 'var(--color-text-inverse)';
+    }
+  }
+
+  function applyActiveNavState() {
+    navItems.forEach(function (item) {
+      if (item.getAttribute('data-active') === 'true') {
+        item.style.color = 'var(--color-primary)';
+        item.style.fontWeight = '600';
+      } else {
+        item.style.fontWeight = '500';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', applyScrolledState, { passive: true });
+  window.addEventListener('load', function () {
+    applyScrolledState();
+    applyActiveNavState();
+  });
+  applyScrolledState();
+  applyActiveNavState();
+})();
+</script>
+
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
