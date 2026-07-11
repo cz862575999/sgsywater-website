@@ -1238,6 +1238,8 @@ function toggleDetail(id) {
   z-index: 9999;
   border: 3px solid rgba(26,138,138,0.55);
   transform: translate(-50%, -50%) scale(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 .wr-wave-1 {
   animation: wrWaveExpand 2.2s ease-out forwards;
@@ -1269,6 +1271,8 @@ function toggleDetail(id) {
   border: 2px solid rgba(26,138,138,0.3);
   transform: translate(-50%, -50%) scale(1);
   animation: wrWaveBounce 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 @keyframes wrWaveBounce {
   0% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
@@ -1299,6 +1303,8 @@ function toggleDetail(id) {
   z-index: 9999;
   background: rgba(26,138,138,0.35);
   animation: wrSplashDot 0.6s ease-out forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 @keyframes wrSplashDot {
   0% { transform: translate(0,0) scale(1); opacity: 1; }
@@ -1346,16 +1352,16 @@ function toggleDetail(id) {
   filter: blur(1.5px);
   transform: rotate(30deg);
 }
-/* 泡泡被点击破开 - 先膨胀再碎裂 */
+/* 泡泡被点击破开 */
 .wr-bubble.pop {
-  animation: wrBubblePop 0.5s ease-out forwards !important;
+  animation: wrBubblePop 0.4s ease-out forwards !important;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 @keyframes wrBubblePop {
-  0% { transform: scale(1); opacity: 1; filter: blur(0px); }
-  30% { transform: scale(1.5); opacity: 0.8; filter: blur(0px); }
-  60% { transform: scale(1.8); opacity: 0.3; filter: blur(2px); }
-  100% { transform: scale(0.2); opacity: 0; filter: blur(4px); }
+  0% { transform: scale(1); opacity: 1; }
+  40% { transform: scale(1.6); opacity: 0.6; }
+  100% { transform: scale(0); opacity: 0; }
 }
 @keyframes wrBubbleRise {
   0% {
@@ -1412,11 +1418,14 @@ function toggleDetail(id) {
     }
   });
 
-  /* 点击水波纹 - 5圈同心波 */
+  /* 点击水波纹 - 带节流 */
+  var lastClickTime = 0;
   document.addEventListener('click', function(e) {
-    var maxDistX = Math.max(e.clientX, window.innerWidth - e.clientX);
-    var maxDistY = Math.max(e.clientY, window.innerHeight - e.clientY);
-    var maxSize = Math.max(maxDistX, maxDistY) * 2.5;
+    var now = Date.now();
+    if (now - lastClickTime < 300) return;
+    lastClickTime = now;
+    var maxDist = Math.sqrt(window.innerWidth * window.innerWidth + window.innerHeight * window.innerHeight);
+    var maxSize = maxDist * 1.2;
 
     /* 3圈同心波纹 */
     for (var i = 0; i < 3; i++) {
@@ -1461,47 +1470,22 @@ function toggleDetail(id) {
         var dist = Math.sqrt(dx*dx + dy*dy);
         /* 点击位置120px范围内的泡泡破开 */
         if (dist < 150) {
-          setTimeout(function() {
-            /* 产生泡泡碎片 */
-            var bRect = bubble.getBoundingClientRect();
-            var bcx = bRect.left + bRect.width / 2;
-            var bcy = bRect.top + bRect.height / 2;
-            for (var p = 0; p < 6; p++) {
-              (function() {
-                var particle = document.createElement('div');
-                particle.style.cssText = 'position:fixed;border-radius:50%;pointer-events:none;z-index:10000;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,0.9),rgba(200,245,245,0.4));width:' + (4 + Math.random()*6) + 'px;height:' + (4 + Math.random()*6) + 'px;left:' + bcx + 'px;top:' + bcy + 'px;';
-                var pAngle = Math.random() * Math.PI * 2;
-                var pDist = 20 + Math.random() * 40;
-                particle.style.transition = 'all 0.6s ease-out';
-                document.body.appendChild(particle);
-                requestAnimationFrame(function() {
-                  particle.style.left = (bcx + Math.cos(pAngle) * pDist) + 'px';
-                  particle.style.top = (bcy + Math.sin(pAngle) * pDist) + 'px';
-                  particle.style.opacity = '0';
-                  particle.style.transform = 'scale(0)';
-                });
-                setTimeout(function() { particle.remove(); }, 650);
-              })();
-            }
-            bubble.classList.add('pop');
+          (function(bbl, delay) {
             setTimeout(function() {
-              bubble.style.opacity = '0';
-              bubble.style.transform = 'scale(0)';
-            }, 500);
-            /* 泡泡消失后重新生成一个新的 */
-            setTimeout(function() {
-              bubble.classList.remove('pop');
-              bubble.style.opacity = '';
-              bubble.style.transform = '';
-              var newSize = 25 + Math.random() * 50;
-              bubble.style.width = newSize + 'px';
-              bubble.style.height = newSize + 'px';
-              bubble.style.left = (5 + Math.random() * 90) + '%';
-              bubble.style.bottom = (-10 + Math.random() * 30) + '%';
-              bubble.style.setProperty('--dur', (8 + Math.random() * 12) + 's');
-              bubble.style.setProperty('--delay', '0s');
-            }, 2500);
-          }, dist * 2);
+              bbl.classList.add('pop');
+              /* 动画0.4s结束后，等2秒再重置让泡泡自然重新上升 */
+              setTimeout(function() {
+                bbl.classList.remove('pop');
+                var newSize = 40 + Math.random() * 70;
+                bbl.style.width = newSize + 'px';
+                bbl.style.height = newSize + 'px';
+                bbl.style.left = (5 + Math.random() * 90) + '%';
+                bbl.style.bottom = (-10 + Math.random() * 30) + '%';
+                bbl.style.setProperty('--dur', (8 + Math.random() * 12) + 's');
+                bbl.style.setProperty('--delay', '0s');
+              }, 2400);
+            }, delay);
+          })(bubble, dist * 2);
         }
       })(allBubbles[b]);
     }
@@ -1543,16 +1527,15 @@ function toggleDetail(id) {
     if (sec.querySelector('.wr-bubble')) continue;
     /* 检查section背景色，跳过咖色/赭石色背景 */
     var bgColor = window.getComputedStyle(sec).backgroundColor;
-    var isBrown = bgColor && (bgColor.indexOf('166') > -1 || bgColor.indexOf('139') > -1 || bgColor.indexOf('130') > -1 || bgColor.indexOf('120') > -1);
+    var isBrown = bgColor && (bgColor.indexOf('166') > -1 || bgColor.indexOf('139') > -1 || bgColor.indexOf('130') > -1 || bgColor.indexOf('120') > -1 || bgColor.indexOf('61') > -1 || bgColor.indexOf('32') > -1);
     /* 也检查class中是否有赭石色相关关键词 */
     var secClass = sec.className || '';
-    if (secClass.indexOf('primary-50') > -1 || secClass.indexOf('primary-100') > -1) isBrown = true;
+    if (secClass.indexOf('primary-50') > -1 || secClass.indexOf('primary-100') > -1 || secClass.indexOf('primary-200') > -1 || secClass.indexOf('primary-700') > -1 || secClass.indexOf('primary-900') > -1) isBrown = true;
     if (isBrown) continue;
 
     sec.style.position = 'relative';
-    sec.style.overflow = 'hidden';
 
-    var bubbleCount = 6 + Math.floor(Math.random() * 5);
+    var bubbleCount = 3 + Math.floor(Math.random() * 3);
     for (var b = 0; b < bubbleCount; b++) {
       var bubble = document.createElement('div');
       bubble.className = 'wr-bubble';
